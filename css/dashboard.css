@@ -44,10 +44,10 @@
   cursor: pointer;
 }
 
-#selectItem {background: #eee url(Resources/img/selection.svg) no-repeat center;}
-#addText {background: #eee url(Resources/img/text.svg) no-repeat center;}
-#addTable {background: #eee url(Resources/img/table.svg) no-repeat center;}
-#addChart {background: #eee url(Resources/img/chart.svg) no-repeat center;}
+#selectItem {background: #eee url(../images/selection.svg) no-repeat center;}
+#addText {background: #eee url(../images/text.svg) no-repeat center;}
+#addTable {background: #eee url(../images/table.svg) no-repeat center;}
+#addDependency {background: #eee url(../images/add_mapping.png) no-repeat center;}
 #addItemToolbar .active {background-color: #4CAF50;}
 
 /* рабочая область */
@@ -69,13 +69,11 @@
 
 .page {
   position: absolute;
-  margin-top: 80px;
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-bottom: 80px;
-  border-width: 1px;
-  width: 840px;
-  height: 1188px;
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   border-color: rgb(255, 255, 255);
   border-style: solid;
   background-color: rgb(255, 255, 255);
@@ -92,7 +90,6 @@
 }
 
 /* панель навигации по страницам */
-
 .pageTabs {
   display: flex;
 }
