@@ -155,3 +155,17 @@ body, h1, h2, h3, p, a, button {
   background-size: contain;
   padding: 0;
 }
+
+.dataset-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dataset-item {
+  background: var(--main-color-gradient-night);
+  border: 2px solid var(--main-text-color-light);
+  color: var(--main-text-color-light);
+  padding: 10px 20px;
+  margin: 10px;
+}
