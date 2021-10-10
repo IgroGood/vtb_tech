@@ -1,14 +1,13 @@
 var currentCell = null;
 
-function createTableItem()
-{
+function createTableItem(){
     var table = document.createElement("table");
     var tableBody = document.createElement("tbody");
 
-    for (var rowIndex = 0; rowIndex < 2; ++rowIndex) {
+    for (var rowIndex = 0; rowIndex < 10; ++rowIndex) {
         var row = document.createElement("tr");
 
-        for (var columnIndex = 0; columnIndex < 2; ++columnIndex) {
+        for (var columnIndex = 0; columnIndex < 1; ++columnIndex) {
             var cell = document.createElement("td");
             setupCell(cell);
             row.appendChild(cell);
@@ -32,7 +31,7 @@ function setupCell(cell)
 {
     cell.setAttribute("data-reportitemtype", "ReportTableCell");
     cell.setAttribute("onmouseover", "storeCell(this)");
-    var cellText = document.createTextNode("cell");
+    var cellText = document.createTextNode("field-" + Math.floor(Math.random() * (100 + 1)));
     cell.appendChild(cellText);
 }
 
