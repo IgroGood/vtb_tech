@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Супер платформа для ВТБ</title>
+	<link href="css/reset.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="css/dashboard.css" rel="stylesheet">
+
+	<script language="javascript" src="js/dashboard/global.js"></script>
+	<!-- <script language="javascript" src="LocalData/signaltreejson.js"></script> -->
+	<script language="javascript" src="js/dashboard/webclient.js"></script>
+	<script language="javascript" src="js/dashboard/reportitem.js"></script>
+	<script language="javascript" src="js/dashboard/reporttextitem.js"></script>
+	<script language="javascript" src="js/dashboard/reporttableitem.js"></script>
+	<script language="javascript" src="js/dashboard/reportpage.js"></script>
+</head>
+
+<body onload="getElements();" onresize="updateSize();">
+	<div class="workspace">
+		<div class="grid-container">
+			<div class="workspace-center">
+				<div class="workspace-center__main-window">
+					<div id="signalsTreeContainer"></div>
+					<div style="background-color: black; height: 100%; float: left; cursor: w-resize"
+						onmousedown="splitterMouseDown(event)" onmouseup="splitterMouseUp(event)">&nbsp;</div>
+					<div class="pageWorkspace active" onclick="onPageClicked(event)" tabindex="0">
+						<div class="page"
+							style="background-image: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2QwZDBkMCIgb3BhY2l0eT0iMC4yIiBzdHJva2Utd2lkdGg9IjEiLz48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDBkMGQwIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=&quot;);">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<div class="workspace-left" id="signalTreeContainer"></div>-->
+
+			<div class="workspace-top">
+				<!--TODO панель инструментов-->
+				<ul class="dataset-list">
+					<label for="dataset-1">Датасет 1</label>
+					<input type="radio" name="dataset" id="dataset-1" class="dataset-item" value="Датасет 1"/>
+					<label for="dataset-2">Датасет 2</label>
+					<input type="radio" name="dataset" id="dataset-2" class="dataset-item" value="Датасет 2"/>
+					<label for="dataset-3">Датасет 3</label>
+					<input type="radio" name="dataset" id="dataset-3" class="dataset-item" value="Датасет 3"/>
+					<label for="dataset-4">Датасет 4</label>
+					<input type="radio" name="dataset" id="dataset-4" class="dataset-item" value="Датасет 4"/>
+				</ul>
+			</div>
+
+			<div class="workspace-right">
+				<ul id="addItemToolbar">
+					<li id="selectItem" class="active" onclick="setMode(this)"></li>
+					<li id="addTable" onclick="setMode(this)"></li>
+					<li id="addDependency" onclick="setMode(this)"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- / The Context Menu -->
+	<nav id="context-menu" class="context-menu">
+		<ul class="context-menu__items">
+			<li class="context-menu__item" data-reportitemtype="ReportItem">
+				<a href="#" class="context-menu__link" data-reportitemtype="ReportItem" data-action="Delete"><i
+						class="fa fa-empire"></i>Удалить</a>
+			</li>
+
+			<li class="context-menu__item" data-reportitemtype="ReportTableItem">
+				<a href="#" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="RemoveRow"><i
+						class="fa fa-empire"></i>Удалить строку</a>
+			</li>
+
+			<li class="context-menu__item" data-reportitemtype="ReportTableItem">
+				<a href="#" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="RemoveColumn"><i
+						class="fa fa-empire"></i>Удалить столбец</a>
+			</li>
+
+			<li class="context-menu__item" data-reportitemtype="ReportTableItem">
+				<a href="#" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="Insert"><i
+						class="fa fa-empire"></i>Добавить</a>
+				<ul>
+					<li><a href="#!" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="InsertTop"><i
+								class="fa fa-camera-retro"></i>Строку выше</a></li>
+					<li><a href="#!" class="context-menu__link" data-reportitemtype="ReportTableItem"
+							data-action="InsertBottom"><i class="fa fa-camera-retro"></i>Строку ниже</a></li>
+					<li><a href="#!" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="InsertLeft"><i
+								class="fa fa-camera-retro"></i>Столбец слева</a></li>
+					<li><a href="#!" class="context-menu__link" data-reportitemtype="ReportTableItem" data-action="InsertRight"><i
+								class="fa fa-camera-retro"></i>Столбец справа</a></li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+
+	<dialog id="tableInsertDialog">
+		<form method="dialog">
+			<table width="100%" cellspacing="0" cellpadding="4">
+				<tr>
+					<td colSpan=3>Куда следует поместить данные?</td>
+				</tr>
+				<tr>
+					<td><button id="inRow" type="submit" onclick="insertSourceDataInTableRow()">В строку</button></td>
+					<td><button id="inColumn" type="submit" onclick="insertSourceDataInTableColumn()">В столбец</button></td>
+					<td><button id="cancel" type="reset"
+							onclick="(function() {document.getElementById('tableInsertDialog').close();})();">Отмена</button></td>
+				</tr>
+			</table>
+		</form>
+	</dialog>
+
+	<script language="javascript" src="js/dashboard/contextmenu.js"></script>
+	<script src="js/leader-line.min.js"></script>
+	<script src="js/dashboard.js"></script>
+</body>
+
+</html>

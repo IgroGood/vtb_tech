@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+.workspace {
+
+}
+
+.grid-container {
+  display: grid;
+  /*grid-template-columns: 1fr 8fr 0fr;
+  grid-template-rows: 1fr 10fr 1fr;*/
+  grid-template-columns: 1fr 8fr 0fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  /*gap: 1px 1px;*/
+  grid-template-areas: "workspace-top workspace-top workspace-top" "workspace-center workspace-center workspace-right" "workspace-left workspace-bottom workspace-right";
+  height: 100vh;
+}
+
+.workspace-top { grid-area: workspace-top; }
+.workspace-right { grid-area: workspace-right; }
+.workspace-left { grid-area: workspace-left; }
+.workspace-center { grid-area: workspace-center; }
+.workspace-bottom { grid-area: workspace-bottom; }
+
+#addItemToolbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 10;
+}
+
+#addItemToolbar li {
+  width: 64px;
+  height: 64px;
+  padding: 5px;
+  background-size: 70%;
+  cursor: pointer;
+}
+
+#selectItem {background: #eee url(../images/selection.svg) no-repeat center;}
+#addText {background: #eee url(../images/text.svg) no-repeat center;}
+#addTable {background: #eee url(../images/table.svg) no-repeat center;}
+#addDependency {background: #eee url(../images/add_mapping.png) no-repeat center;}
+#addItemToolbar .active {background-color: #4CAF50;}
+
+/* рабочая область */
+
+.workspace-center__main-window {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.pageWorkspace {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  overflow: scroll;
+  /*border: 2px solid blue;*/
+}
+
+.page {
+  position: absolute;
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  background-color: rgb(255, 255, 255);
+}
+
+.ReportItem
+{
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  border: 1px solid #d3d3d3;
+  text-align: center;
+}
+
+/* панель навигации по страницам */
+.pageTabs {
+  display: flex;
+}
+
+.pageTabs li {
+  padding: 5px 10px;
+  margin: 5px 2px;
+  background-color: #ccc;
+  cursor: pointer;
+  /*border: 2px solid #000;*/
+}
+
+#newPage {
+  position: relative;
+}

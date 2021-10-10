@@ -1,0 +1,107 @@
+\:root
+	--main-color-night: #141414
+	--main-color-gradient-night: linear-gradient(45deg, #101019, #1E1E2A)
+	--main-btn-color-light: #5E9AE7
+	--main-text-color-light: #FFFFFF
+	--main-shadow-color-night: inset 0px 4px 20px rgba(0, 0, 0, 0.25)
+	--main-glow-color-light: 0px 4px 10px var(--main-btn-color-light)
+body
+	background: var(--main-color-night)
+	font-family: 'Roboto'
+
+body, h1, h2, h3, p, a, button
+	color: var(--main-text-color-light)
+
+.modal
+	&-authorization
+		background: var(--main-color-gradient-night)
+		box-shadow: var(--main-shadow-color-night)
+		border-radius: 30px
+		&__form
+			display: flex
+			justify-content: center
+			flex-direction: column
+			align-items: center
+			padding: 40px
+			margin-bottom: 10px
+		&__title
+			text-align: center
+			font-family: Roboto
+			font-style: italic
+			font-weight: bold
+			font-size: 48px
+			line-height: 56px
+		&__login-btn
+			width: 100%
+			display: flex
+			justify-content: start
+			margin-bottom: 20px
+			a
+				font-family: Roboto
+				font-style: italic
+				font-weight: 400
+				font-size: 18px
+				line-height: 21px
+				display: flex
+				align-items: center
+				color: var(--main-btn-color-light)
+				padding: 10px
+			.active
+				font-size: 18px
+				line-height: 21px
+				display: flex
+				align-items: center
+				color: var(--main-text-color-light)
+				text-shadow: var(--main-glow-color-light)
+		&__login-with
+			width: 100%
+		&__button
+
+.label
+	font-family: Roboto
+	font-style: italic
+	font-weight: 400
+	font-size: 18px
+	line-height: 21px
+	display: flex
+	align-items: center
+	color: var(--main-btn-color-light)
+
+.input
+	width: 100%
+	background: transparent
+	border: 2px solid var(--main-btn-color-light)
+	box-sizing: border-box
+	border-radius: 15px
+	padding: 10px 20px
+	font-family: Roboto
+	font-style: italic
+	font-weight: 200
+	font-size: 18px
+	line-height: 21px
+	display: flex
+	align-items: center
+	margin-bottom: 20px
+
+.button
+	width: max-content
+	background: var(--main-btn-color-light)
+	border-radius: 15px
+	border: none
+	padding: 10px 80px
+	font-style: italic
+	font-weight: bold
+	color: var(--main-text-color-light)
+	font-size: 18px
+	line-height: 21px
+	text-align: center
+	&-vtb
+		display: block
+		width: 80px
+		height: 50px
+		background: url(../images/btn-vtb-logo.png) center no-repeat
+		background-size: contain
+		padding: 0
+
+@import '_dashboard.sass'
+
