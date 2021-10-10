@@ -20,19 +20,17 @@
 				<form class="modal-authorization__form" action="#">
 					<h1 class="modal-authorization__title">Kvirin DBM</h1>
 					<div class="modal-authorization__login-btn">
-						<a class="active" href="#">Войти</a>
-						<a href="#">Зарегистрироваться </a>
+						<a class="active" href="#" onclick="login();">Войти</a>
+						<a href="#" onclick="login();">Зарегистрироваться </a>
 					</div>
 					<input type="text" class="input" placeholder="Логин">
 					<input type="text" class="input" placeholder="Пароль">
-					<input type="button" class="button" value="Войти">
+					<input type="button" class="button" value="Войти" onclick="login();">
 					<div class="modal-authorization__login-with">
 						<label class="label" for="button-vtb">Войти с помощью</label>
-						<input id="button-vtb" type="button" class="button button-vtb">
+						<input id="button-vtb" type="button" class="button button-vtb" onclick="login();">
 					</div>
 				</form>
-
-
 			</div>
 		</div>
 	</div>
@@ -43,7 +41,11 @@
 		$('.bd-example-modal-lg').modal({
       backdrop: 'static',
       keyboard: false
-    })
+    });
+
+		function login(){
+			document.location.href = "/dashboard.html";
+		}
 	</script>
 </body>
 </html>

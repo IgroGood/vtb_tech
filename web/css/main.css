@@ -170,6 +170,14 @@ body, h1, h2, h3, p, a, button {
   margin: 10px;
 }
 
+.itemFirst {
+  background: red;
+}
+
+.itemSecond {
+  background: green;
+}
+
 tbody td {
   padding: 5px 20px;
   color: var(--main-color-night);
